@@ -16,7 +16,10 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
   @override
   void initState() {
     super.initState();
-    animationController=AnimationController(vsync: this);
+    animationController=AnimationController(
+        vsync: this,
+        duration: const Duration(seconds: 1)
+    );
     animation=animationController.view;
     animationController.value=0;
   }
@@ -39,7 +42,7 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
           const SizedBox(height: 20,),
           ElevatedButton(
               onPressed: (){
-                if(animation.value==0){
+                if(animation.value<=0){
                   animationController.value=1;
                 }else{
                   animationController.value=0;
@@ -52,68 +55,6 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
         ],
       ),
     );
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
   }
 }
 
