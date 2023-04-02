@@ -8,6 +8,7 @@ class ExpensiveWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print("Expensive Widget was rebuild");
     _performExpensiveTask();
     return Container(

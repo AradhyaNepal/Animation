@@ -5,6 +5,8 @@ import 'package:animation/screens/home/home_screen.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
+import 'package:animation/screens/terminologies/tween_screen_advance.dart';
+import 'package:animation/screens/terminologies/tween_screen_basic.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
         AnimationWithoutAnimationClass.route:(_)=>const AnimationWithoutAnimationClass(),
         AnimationWithTicker.route:(_)=>const AnimationWithTicker(),
         IntrinsicAnimationScreen.route:(_)=>const IntrinsicAnimationScreen(),
+        TweenScreenBasic.route:(_)=>const TweenScreenBasic(),
+        TweenScreenAdvance.route:(_)=>const TweenScreenAdvance(),
       },
     );
   }

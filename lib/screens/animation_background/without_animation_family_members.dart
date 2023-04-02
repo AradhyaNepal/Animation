@@ -41,7 +41,7 @@ class _WithoutFamilyMembersOfAnimationState extends State<WithoutFamilyMembersOf
                     child: TextField(
                       onSubmitted: (value){
                         setState(() {
-                          _enteredText=value??"";
+                          _enteredText=value;
                         });
                       },
                     ),

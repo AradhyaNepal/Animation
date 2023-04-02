@@ -5,6 +5,8 @@ import 'package:animation/screens/home/widgets/home_screen_options_widgets.dart'
 import 'package:animation/screens/terminologies/animation_with_ticker.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
+import 'package:animation/screens/terminologies/tween_screen_advance.dart';
+import 'package:animation/screens/terminologies/tween_screen_basic.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,6 +53,14 @@ class HomeScreen extends StatelessWidget {
                 HomeScreenOptionsWidget(
                   heading:  IntrinsicAnimationScreen.title,
                   routeToNavigate: IntrinsicAnimationScreen.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  TweenScreenBasic.title,
+                  routeToNavigate: TweenScreenBasic.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  TweenScreenAdvance.title,
+                  routeToNavigate: TweenScreenAdvance.route,
                 ),
               ],
             ),
