@@ -1,3 +1,6 @@
+import 'package:animation/screens/animation_background/animation_background_screen.dart';
+import 'package:animation/screens/animation_background/animation_family_tree.dart';
+import 'package:animation/screens/animation_background/without_animation_family_members.dart';
 import 'package:animation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +21,9 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.route,
       routes: {
         HomeScreen.route:(_)=>const HomeScreen(),
+        AnimationFamilyTree.route:(_)=>const AnimationFamilyTree(),
+        WithoutFamilyMembersOfAnimation.route:(_)=>const WithoutFamilyMembersOfAnimation(),
+        AnimationBackgroundScreen.route:(_)=>const AnimationBackgroundScreen(),
       },
     );
   }

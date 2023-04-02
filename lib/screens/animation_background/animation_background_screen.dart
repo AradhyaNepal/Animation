@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AnimationBackgroundScreen1 extends StatefulWidget {
-  static const String route="/animationBackgroundScreen1 ";
-  static const String title="Animation Background 1";
-  const AnimationBackgroundScreen1({Key? key}) : super(key: key);
+class AnimationBackgroundScreen extends StatefulWidget {
+  static const String route="/animationBackgroundScreen";
+  static const String title="Animation Background";
+  const AnimationBackgroundScreen({Key? key}) : super(key: key);
 
   @override
-  State<AnimationBackgroundScreen1> createState() => _AnimationBackgroundScreen1State();
+  State<AnimationBackgroundScreen> createState() => _AnimationBackgroundScreenState();
 }
 
-class _AnimationBackgroundScreen1State extends State<AnimationBackgroundScreen1> with SingleTickerProviderStateMixin{
+class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> with SingleTickerProviderStateMixin{
   late final AnimationController animationController;
   late final Animation<double> animation;
   @override

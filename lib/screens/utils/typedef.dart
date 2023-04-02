@@ -1,0 +1,1 @@
+typedef SwitchOnPressed=void Function(bool);
