@@ -63,3 +63,6 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
   }
 }
 
+
+//Todo: Memory Leak
+//Todo: Do the actual animation

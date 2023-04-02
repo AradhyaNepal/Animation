@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_conditional_assignment
 
-import 'dart:async';
-
 import 'package:animation/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

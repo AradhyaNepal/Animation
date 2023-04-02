@@ -4,6 +4,7 @@ import 'package:animation/screens/animation_background/without_animation_family_
 import 'package:animation/screens/home/home_screen.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
+import 'package:animation/screens/terminologies/intrinsic_animation_of_single_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         AnimationBackgroundScreen.route:(_)=>const AnimationBackgroundScreen(),
         AnimationWithoutAnimationClass.route:(_)=>const AnimationWithoutAnimationClass(),
         AnimationWithTicker.route:(_)=>const AnimationWithTicker(),
+        IntrinsicAnimationOfSingleWidget.route:(_)=>const IntrinsicAnimationOfSingleWidget(),
       },
     );
   }

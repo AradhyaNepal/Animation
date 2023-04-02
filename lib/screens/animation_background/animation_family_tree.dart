@@ -97,3 +97,8 @@ class _CustomSwitch extends StatelessWidget {
     );
   }
 }
+
+
+
+
+//Todo: Memory Leak
