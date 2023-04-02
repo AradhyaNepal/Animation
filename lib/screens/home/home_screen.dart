@@ -30,12 +30,12 @@ class HomeScreen extends StatelessWidget {
                   routeToNavigate: AnimationBackgroundScreen.route,
                 ),
                 HomeScreenOptionsWidget(
-                  heading:  AnimationFamilyTree.title,
-                  routeToNavigate: AnimationFamilyTree.route,
-                ),
-                HomeScreenOptionsWidget(
                   heading:  WithoutFamilyMembersOfAnimation.title,
                   routeToNavigate: WithoutFamilyMembersOfAnimation.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationFamilyTree.title,
+                  routeToNavigate: AnimationFamilyTree.route,
                 ),
               ],
             ),

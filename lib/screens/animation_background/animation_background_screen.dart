@@ -1,3 +1,4 @@
+import 'package:animation/screens/animation_background/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 
 class AnimationBackgroundScreen extends StatefulWidget {
@@ -30,8 +31,8 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
           AnimatedBuilder(
               animation: animation,
               builder: (_,__){
-                return LinearProgressIndicator(
-                  value: animation.value,
+                return CustomLoading(
+                  progressMultiple: animation.value,
                 );
               }
           ),
@@ -109,13 +110,10 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
 
 
 
-
-
-
-
-
-
-
-
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 }
 
