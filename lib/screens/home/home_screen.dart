@@ -2,6 +2,8 @@ import 'package:animation/screens/animation_background/animation_background_scre
 import 'package:animation/screens/animation_background/animation_family_tree.dart';
 import 'package:animation/screens/animation_background/without_animation_family_members.dart';
 import 'package:animation/screens/home/widgets/home_screen_options_widgets.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker.dart';
+import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,6 +38,14 @@ class HomeScreen extends StatelessWidget {
                 HomeScreenOptionsWidget(
                   heading:  AnimationFamilyTree.title,
                   routeToNavigate: AnimationFamilyTree.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationWithoutAnimationClass.title,
+                  routeToNavigate: AnimationWithoutAnimationClass.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationWithTicker.title,
+                  routeToNavigate: AnimationWithTicker.route,
                 ),
               ],
             ),

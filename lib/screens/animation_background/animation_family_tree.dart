@@ -1,36 +1,7 @@
 import 'package:animation/screens/animation_background/widgets/expensive_widget.dart';
 import 'package:flutter/material.dart';
 
-class _CustomSwitch extends StatelessWidget {
-  final ValueNotifier<bool> isSelected;
-  const _CustomSwitch({
-    required this.isSelected,
-    Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text("This is Switch: "),
-        ValueListenableBuilder<bool>(
-          valueListenable: isSelected,
-          builder: (context,value,child) {
-            return Switch(
-              value: value,
-              onChanged: (value){
-                isSelected.value=value;
-              },
-            );
-          }
-        ),
-        //And lots of other modifications in our switch
-        //....
-        //....
-      ],
-    );
-  }
-}
 
 class AnimationFamilyTree extends StatefulWidget {
   static const String route="/AnimationFamilyTree";
@@ -49,6 +20,11 @@ class _AnimationFamilyTreeState extends State<AnimationFamilyTree> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            AnimationFamilyTree.title,
+          ),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -89,106 +65,35 @@ class _AnimationFamilyTreeState extends State<AnimationFamilyTree> {
       ),
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+
+class _CustomSwitch extends StatelessWidget {
+  final ValueNotifier<bool> isSelected;
+  const _CustomSwitch({
+    required this.isSelected,
+    Key? key}) : super(key: key);
 
   @override
-  void dispose() {
-    _isSelected.dispose();
-    _enteredText.dispose();
-    super.dispose();
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("This is Switch: "),
+        ValueListenableBuilder<bool>(
+            valueListenable: isSelected,
+            builder: (context,value,child) {
+              return Switch(
+                value: value,
+                onChanged: (value){
+                  isSelected.value=value;
+                },
+              );
+            }
+        ),
+        //And lots of other modifications in our switch
+        //....
+        //....
+      ],
+    );
   }
 }

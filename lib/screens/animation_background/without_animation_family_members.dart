@@ -1,6 +1,7 @@
 import 'package:animation/screens/animation_background/widgets/expensive_widget.dart';
-import 'package:animation/screens/utils/typedef.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/typedef.dart';
 
 class WithoutFamilyMembersOfAnimation extends StatefulWidget {
   static const String route="/WithoutFamilyMembersOfAnimation";
@@ -19,6 +20,11 @@ class _WithoutFamilyMembersOfAnimationState extends State<WithoutFamilyMembersOf
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            WithoutFamilyMembersOfAnimation.title,
+          ),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

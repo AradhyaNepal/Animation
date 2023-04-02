@@ -1,4 +1,4 @@
-import 'package:animation/screens/animation_background/widgets/custom_loading.dart';
+import 'package:animation/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 
 class AnimationBackgroundScreen extends StatefulWidget {
@@ -11,41 +11,46 @@ class AnimationBackgroundScreen extends StatefulWidget {
 }
 
 class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> with SingleTickerProviderStateMixin{
-  late final AnimationController animationController;
-  late final Animation<double> animation;
+  late final AnimationController _animationController;
+  late final Animation<double> _animation;
   @override
   void initState() {
     super.initState();
-    animationController=AnimationController(
+    _animationController=AnimationController(
         vsync: this,
-        duration: const Duration(seconds: 1)
+        duration: const Duration(seconds: 5)
     );
-    animation=animationController.view;
-    animationController.value=0;
+    _animation=_animationController.view;
+    _animationController.value=0;
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          AnimationBackgroundScreen.title,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AnimatedBuilder(
-              animation: animation,
+              animation: _animation,
               builder: (_,__){
                 return CustomLoading(
-                  progressMultiple: animation.value,
+                  progressMultiple: _animation.value,
                 );
               }
           ),
           const SizedBox(height: 20,),
           ElevatedButton(
               onPressed: (){
-                if(animation.value<=0){
-                  animationController.value=1;
+                if(_animation.value<=0){
+                  _animationController.value=1;
                 }else{
-                  animationController.value=0;
+                  _animationController.value=0;
                 }
               },
               child: const Text(

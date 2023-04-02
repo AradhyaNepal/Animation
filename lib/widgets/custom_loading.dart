@@ -1,5 +1,4 @@
-import 'dart:math';
-import 'dart:ui';
+
 
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,13 @@ class CustomLoading extends StatelessWidget {
 class LoadingCustomPainter extends CustomPainter{
   final Color color=Colors.blue;
   double progressMultiple;
-  LoadingCustomPainter(this.progressMultiple);
+  LoadingCustomPainter(this.progressMultiple){
+    if(progressMultiple<=0){
+      progressMultiple=0;
+    }else if(progressMultiple>=1){
+      progressMultiple=1;
+    }
+  }
 
 
 
