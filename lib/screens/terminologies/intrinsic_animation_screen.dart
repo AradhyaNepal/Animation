@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class IntrinsicAnimationOfSingleWidget extends StatefulWidget {
-  static const String route="/IntrinsicAnimationOfSingleWidget";
-  static const String title="Intrinsic Animation Of Single Widget";
-  const IntrinsicAnimationOfSingleWidget({Key? key}) : super(key: key);
+class IntrinsicAnimationScreen extends StatefulWidget {
+  static const String route="/IntrinsicAnimationScreen";
+  static const String title="Intrinsic Animation Screen";
+  const IntrinsicAnimationScreen({Key? key}) : super(key: key);
 
   @override
-  State<IntrinsicAnimationOfSingleWidget> createState() => _IntrinsicAnimationOfSingleWidgetState();
+  State<IntrinsicAnimationScreen> createState() => _IntrinsicAnimationScreenState();
 }
 
-class _IntrinsicAnimationOfSingleWidgetState extends State<IntrinsicAnimationOfSingleWidget> {
+class _IntrinsicAnimationScreenState extends State<IntrinsicAnimationScreen> {
   bool _isExpanded=false;
   late Size _size;
   @override
   void didChangeDependencies() {
     _size=MediaQuery.of(context).size;
-    print("rebuild");
     super.didChangeDependencies();
   }
   @override
@@ -24,7 +23,7 @@ class _IntrinsicAnimationOfSingleWidgetState extends State<IntrinsicAnimationOfS
         child: Scaffold(
           appBar: AppBar(
             title: const Text(
-              IntrinsicAnimationOfSingleWidget.title,
+              IntrinsicAnimationScreen.title,
             ),
           ),
           body: Card(
