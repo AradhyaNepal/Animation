@@ -1,17 +1,17 @@
 import 'package:animation/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 
-class AnimationCurveScreen extends StatefulWidget {
-  static const String route = "/AnimationCurveScreen";
-  static const String title = "Animation Curve Screen";
+class AnimationIntervalScreen extends StatefulWidget {
+  static const String route = "/AnimationIntervalScreen";
+  static const String title = "Animation Interval Screen";
 
-  const AnimationCurveScreen({Key? key}) : super(key: key);
+  const AnimationIntervalScreen({Key? key}) : super(key: key);
 
   @override
-  State<AnimationCurveScreen> createState() => _AnimationCurveScreenState();
+  State<AnimationIntervalScreen> createState() => _AnimationIntervalScreenState();
 }
 
-class _AnimationCurveScreenState extends State<AnimationCurveScreen>
+class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _progressAnimation;
@@ -28,23 +28,28 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
     _setColorAnimation();
   }
 
-  //Keep experimenting
   final Curve _curve = Curves.easeInOut;
-  late final Curve _progressCurve = _curve;
-  late final Curve _colorCurve = _curve;
 
   void _setProgressAnimation() {
     _progressAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: _progressCurve,
+        curve: _curve,
       ),
     );
   }
 
   void _setColorAnimation() {
     _colorAnimation = ColorTween(begin: Colors.red, end: Colors.orange).animate(
-      CurvedAnimation(parent: _controller, curve: _colorCurve),
+      CurvedAnimation(
+          parent: _controller,
+          curve: Interval(
+            0.75,
+            1,
+            curve: _curve,
+
+          ),
+      ),
     );
   }
 
@@ -80,7 +85,7 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
                     const SizedBox(width: 20,),
                     const Expanded(
                       child: Text(
-                        AnimationCurveScreen.title,
+                        AnimationIntervalScreen.title,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -123,7 +128,8 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
   void _animate() async {
     if (!_controller.isAnimating) {
       await _controller.forward();
-      _controller.reverse();
+      await Future.delayed(const Duration(seconds: 1));
+      await _controller.reverse();
     }
   }
 

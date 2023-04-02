@@ -3,6 +3,7 @@ import 'package:animation/screens/animation_background/animation_family_tree.dar
 import 'package:animation/screens/animation_background/without_animation_family_members.dart';
 import 'package:animation/screens/home/home_screen.dart';
 import 'package:animation/screens/terminologies/animation_curve_screen.dart';
+import 'package:animation/screens/terminologies/animation_interval_screen.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         TweenScreenBasic.route:(_)=>const TweenScreenBasic(),
         TweenScreenAdvance.route:(_)=>const TweenScreenAdvance(),
         AnimationCurveScreen.route:(_)=>const AnimationCurveScreen(),
+        AnimationIntervalScreen.route:(_)=>const AnimationIntervalScreen(),
       },
     );
   }
