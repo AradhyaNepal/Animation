@@ -2,6 +2,7 @@ import 'package:animation/screens/animation_background/animation_background_scre
 import 'package:animation/screens/animation_background/animation_family_tree.dart';
 import 'package:animation/screens/animation_background/without_animation_family_members.dart';
 import 'package:animation/screens/home/widgets/home_screen_options_widgets.dart';
+import 'package:animation/screens/terminologies/animation_curve_screen.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
@@ -61,6 +62,10 @@ class HomeScreen extends StatelessWidget {
                 HomeScreenOptionsWidget(
                   heading:  TweenScreenAdvance.title,
                   routeToNavigate: TweenScreenAdvance.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationCurveScreen.title,
+                  routeToNavigate: AnimationCurveScreen.route,
                 ),
               ],
             ),

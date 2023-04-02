@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class CustomLoading extends StatelessWidget {
   final double progressMultiple;
-  const CustomLoading({required this.progressMultiple,Key? key}) : super(key: key);
+  final Color color;
+  const CustomLoading({this.color=Colors.blue,required this.progressMultiple,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,16 +13,19 @@ class CustomLoading extends StatelessWidget {
       height: 30,
       width: MediaQuery.of(context).size.width,
       child: CustomPaint(
-        painter: LoadingCustomPainter(progressMultiple),
+        painter: LoadingCustomPainter(
+          progressMultiple: progressMultiple,
+          color: color,
+        ),
       ),
     );
   }
 }
 
 class LoadingCustomPainter extends CustomPainter{
-  final Color color=Colors.blue;
+  Color color;
   double progressMultiple;
-  LoadingCustomPainter(this.progressMultiple){
+  LoadingCustomPainter({required this.progressMultiple,required this.color}) {
     if(progressMultiple<=0){
       progressMultiple=0;
     }else if(progressMultiple>=1){
@@ -47,7 +51,7 @@ class LoadingCustomPainter extends CustomPainter{
   double _startPosition(Size size) => size.width*0.05;
 
   void _drawProgress(Canvas canvas, Size size) {
-    if(progressMultiple!=0){
+    if(progressMultiple>=0.04){
        Paint paint=Paint()..color=color..style=PaintingStyle.fill..strokeWidth=size.height..strokeCap=StrokeCap.round;
       canvas.drawLine(Offset(_startPosition(size), 0), Offset(_animationEnd(size), 0), paint);
     }
