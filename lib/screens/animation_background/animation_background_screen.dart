@@ -20,7 +20,7 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
         vsync: this,
         duration: const Duration(seconds: 5)
     );
-    _animation=_animationController.view;
+    _animation=_animationController;
     _animationController.value=0;
   }
 
