@@ -16,7 +16,8 @@ class _TweenScreenBasicState extends State<TweenScreenBasic> with SingleTickerPr
   late final Animation<Offset> _offsetAnimation;
   late final Animation<double> _sizeAnimation;
   late final Animation<Color?> _colorAnimation;
-  late final Size _size;
+  late Size _size;
+  final ValueNotifier<bool> _isPaused=ValueNotifier(false);
   @override
   void initState() {
     _controller=AnimationController(
@@ -65,14 +66,31 @@ class _TweenScreenBasicState extends State<TweenScreenBasic> with SingleTickerPr
           IconButton(
             onPressed: (){
               _controller.reset();
+              _isPaused.value=false;
             },
             icon: const Icon(Icons.lock_reset_sharp)
           ),
-          IconButton(
-              onPressed: (){
-                _controller.stop();
-              },
-              icon: const Icon(Icons.stop),
+          ValueListenableBuilder(
+            valueListenable: _isPaused,
+            builder: (context,isPaused,child) {
+              return IconButton(
+                  onPressed: ()async{
+                    if(isPaused){
+                      _isPaused.value=false;
+                      if(_controller.status==AnimationStatus.forward){
+                        await _controller.forward(from: _controller.value);
+                        _controller.reverse();
+                      }else if(_controller.status==AnimationStatus.reverse){
+                        _controller.reverse(from: _controller.value);
+                      }
+                    }else if(_controller.isAnimating){
+                      _controller.stop();
+                      _isPaused.value=true;
+                    }
+                  },
+                  icon: Icon(isPaused?Icons.play_arrow:Icons.stop),
+              );
+            }
           ),
         ],
       ),
@@ -129,6 +147,7 @@ class _TweenScreenBasicState extends State<TweenScreenBasic> with SingleTickerPr
   @override
   void dispose() {
     _controller.dispose();
+    _isPaused.dispose();
     super.dispose();
   }
 }

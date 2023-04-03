@@ -80,7 +80,7 @@ class _AnimationWithoutAnimationClassState extends State<AnimationWithoutAnimati
   }
 
   double get _totalTimesAmountGetUpdated => (_durationInSecond*1000)/_durationToUpdate.inMilliseconds;
-  Duration get _durationToUpdate => const Duration(milliseconds: 1000);
+  Duration get _durationToUpdate => const Duration(milliseconds: 250);
 
   @override
   void dispose() {

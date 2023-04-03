@@ -39,7 +39,7 @@ class _WithoutFamilyMembersOfAnimationState extends State<WithoutFamilyMembersOf
                   const Text("Type Value: "),
                   Expanded(
                     child: TextField(
-                      onSubmitted: (value){
+                      onChanged: (value){
                         setState(() {
                           _enteredText=value;
                         });

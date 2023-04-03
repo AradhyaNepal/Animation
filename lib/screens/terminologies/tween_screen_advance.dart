@@ -14,7 +14,8 @@ class _TweenScreenAdvanceState extends State<TweenScreenAdvance> with SingleTick
   late final Animation<Offset> _offsetAnimation;
   late final Animation<double> _sizeAnimation;
   late final Animation<Color?> _colorAnimation;
-  late final Size _size;
+  late Size _size;
+  final ValueNotifier<bool> _isPaused=ValueNotifier(false);
   @override
   void initState() {
     _controller=AnimationController(
@@ -126,14 +127,26 @@ class _TweenScreenAdvanceState extends State<TweenScreenAdvance> with SingleTick
           IconButton(
               onPressed: (){
                 _controller.reset();
+                _isPaused.value=false;
               },
               icon: const Icon(Icons.lock_reset_sharp)
           ),
-          IconButton(
-            onPressed: (){
-              _controller.stop();
-            },
-            icon: const Icon(Icons.stop),
+          ValueListenableBuilder(
+              valueListenable: _isPaused,
+              builder: (context,isPaused,child) {
+                return IconButton(
+                  onPressed: ()async{
+                    if(isPaused){
+                      _isPaused.value=false;
+                      _controller.forward(from: _controller.value);
+                    }else if(_controller.isAnimating){
+                      _controller.stop();
+                      _isPaused.value=true;
+                    }
+                  },
+                  icon: Icon(isPaused?Icons.play_arrow:Icons.stop),
+                );
+              }
           ),
         ],
       ),
@@ -174,6 +187,7 @@ class _TweenScreenAdvanceState extends State<TweenScreenAdvance> with SingleTick
   @override
   void dispose() {
     _controller.dispose();
+    _isPaused.dispose();
     super.dispose();
   }
 }

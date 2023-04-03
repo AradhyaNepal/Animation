@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.animation">
    <application
-        android:label="Bikki KC"
+        android:label="Animation For Newbie"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
