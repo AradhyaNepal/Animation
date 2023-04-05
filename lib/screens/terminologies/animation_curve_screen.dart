@@ -122,8 +122,11 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
 
   void _animate() async {
     if (!_controller.isAnimating) {
-      await _controller.forward();
-      _controller.reverse();
+      if(_progressAnimation.value<=0){
+        _controller.forward();
+      }else{
+        _controller.reverse();
+      }
     }
   }
 

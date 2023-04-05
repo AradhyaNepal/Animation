@@ -127,9 +127,11 @@ class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
 
   void _animate() async {
     if (!_controller.isAnimating) {
-      await _controller.forward();
-      await Future.delayed(const Duration(seconds: 1));
-      await _controller.reverse();
+      if(_progressAnimation.value<=0){
+        _controller.forward();
+      }else{
+        _controller.reverse();
+      }
     }
   }
 
