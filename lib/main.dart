@@ -6,6 +6,7 @@ import 'package:animation/screens/terminologies/animation_curve_screen.dart';
 import 'package:animation/screens/terminologies/animation_interval_screen.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker_and_family.dart';
 import 'package:animation/screens/terminologies/animation_with_ticker_and_setstate.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker_and_text_editing_controller.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
 import 'package:animation/screens/terminologies/tween_screen_advance.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         AnimationWithoutAnimationClass.route:(_)=>const AnimationWithoutAnimationClass(),
         AnimationWithTickerAndFamily.route:(_)=>const AnimationWithTickerAndFamily(),
         AnimationWithTickerAndSetState.route:(_)=>const AnimationWithTickerAndSetState(),
+        AnimationWithTickerAndTextEditingController.route:(_)=>const AnimationWithTickerAndTextEditingController(),
         IntrinsicAnimationScreen.route:(_)=>const IntrinsicAnimationScreen(),
         TweenScreenBasic.route:(_)=>const TweenScreenBasic(),
         TweenScreenAdvance.route:(_)=>const TweenScreenAdvance(),

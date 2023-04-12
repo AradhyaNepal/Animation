@@ -39,7 +39,7 @@ class LoadingCustomPainter extends CustomPainter{
   void paint(Canvas canvas, Size size) {
     _drawBackground(canvas, size);
     _drawProgress(canvas, size);
-    _drawInner(canvas,size);
+    _drawInnerDot(canvas,size);
 
   }
 
@@ -59,7 +59,7 @@ class LoadingCustomPainter extends CustomPainter{
 
   double _animationEnd(Size size) => endWidth(size)*progressMultiple;
 
-  void _drawInner(Canvas canvas, Size size) {
+  void _drawInnerDot(Canvas canvas, Size size) {
     for(double i =_startPosition(size);i<_animationEnd(size)-_widthPerItem(size);i+=_widthPerItem(size)){
       Paint paint=Paint()..color=Colors.white..style=PaintingStyle.fill..strokeWidth=size.height/5..strokeCap=StrokeCap.round;
       canvas.drawLine(Offset(i+_widthPerItem(size)/2, 0), Offset(i+_widthPerItem(size)/2, 0), paint);

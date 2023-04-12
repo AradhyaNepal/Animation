@@ -12,6 +12,8 @@ import 'package:animation/screens/terminologies/tween_screen_advance.dart';
 import 'package:animation/screens/terminologies/tween_screen_basic.dart';
 import 'package:flutter/material.dart';
 
+import '../terminologies/animation_with_ticker_and_text_editing_controller.dart';
+
 class HomeScreen extends StatelessWidget {
   static const String route="/";
   const HomeScreen({Key? key}) : super(key: key);
@@ -56,6 +58,10 @@ class HomeScreen extends StatelessWidget {
                 HomeScreenOptionsWidget(
                   heading:  AnimationWithTickerAndSetState.title,
                   routeToNavigate: AnimationWithTickerAndSetState.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationWithTickerAndTextEditingController.title,
+                  routeToNavigate: AnimationWithTickerAndTextEditingController.route,
                 ),
                 HomeScreenOptionsWidget(
                   heading:  IntrinsicAnimationScreen.title,
