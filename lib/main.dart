@@ -4,7 +4,8 @@ import 'package:animation/screens/animation_background/without_animation_family_
 import 'package:animation/screens/home/home_screen.dart';
 import 'package:animation/screens/terminologies/animation_curve_screen.dart';
 import 'package:animation/screens/terminologies/animation_interval_screen.dart';
-import 'package:animation/screens/terminologies/animation_with_ticker.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker_and_family.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker_and_setstate.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
 import 'package:animation/screens/terminologies/tween_screen_advance.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         WithoutFamilyMembersOfAnimation.route:(_)=>const WithoutFamilyMembersOfAnimation(),
         AnimationBackgroundScreen.route:(_)=>const AnimationBackgroundScreen(),
         AnimationWithoutAnimationClass.route:(_)=>const AnimationWithoutAnimationClass(),
-        AnimationWithTicker.route:(_)=>const AnimationWithTicker(),
+        AnimationWithTickerAndFamily.route:(_)=>const AnimationWithTickerAndFamily(),
+        AnimationWithTickerAndSetState.route:(_)=>const AnimationWithTickerAndSetState(),
         IntrinsicAnimationScreen.route:(_)=>const IntrinsicAnimationScreen(),
         TweenScreenBasic.route:(_)=>const TweenScreenBasic(),
         TweenScreenAdvance.route:(_)=>const TweenScreenAdvance(),

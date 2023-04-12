@@ -4,7 +4,8 @@ import 'package:animation/screens/animation_background/without_animation_family_
 import 'package:animation/screens/home/widgets/home_screen_options_widgets.dart';
 import 'package:animation/screens/terminologies/animation_curve_screen.dart';
 import 'package:animation/screens/terminologies/animation_interval_screen.dart';
-import 'package:animation/screens/terminologies/animation_with_ticker.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker_and_family.dart';
+import 'package:animation/screens/terminologies/animation_with_ticker_and_setstate.dart';
 import 'package:animation/screens/terminologies/animation_without_animation_class.dart';
 import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart';
 import 'package:animation/screens/terminologies/tween_screen_advance.dart';
@@ -49,8 +50,12 @@ class HomeScreen extends StatelessWidget {
                   routeToNavigate: AnimationWithoutAnimationClass.route,
                 ),
                 HomeScreenOptionsWidget(
-                  heading:  AnimationWithTicker.title,
-                  routeToNavigate: AnimationWithTicker.route,
+                  heading:  AnimationWithTickerAndFamily.title,
+                  routeToNavigate: AnimationWithTickerAndFamily.route,
+                ),
+                HomeScreenOptionsWidget(
+                  heading:  AnimationWithTickerAndSetState.title,
+                  routeToNavigate: AnimationWithTickerAndSetState.route,
                 ),
                 HomeScreenOptionsWidget(
                   heading:  IntrinsicAnimationScreen.title,

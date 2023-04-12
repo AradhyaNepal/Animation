@@ -4,36 +4,31 @@ import 'package:animation/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class AnimationWithTicker extends StatefulWidget {
-  static const String route="/AnimationWithTicker";
-  static const String title="Animation With Ticker";
-  const AnimationWithTicker({Key? key}) : super(key: key);
+class AnimationWithTickerAndSetState extends StatefulWidget {
+  static const String route="/AnimationWithTickerAndSetState";
+  static const String title="Animation With Ticker And Set State";
+  const AnimationWithTickerAndSetState({Key? key}) : super(key: key);
 
   @override
-  State<AnimationWithTicker> createState() => _AnimationWithTickerState();
+  State<AnimationWithTickerAndSetState> createState() => _AnimationWithTickerAndSetStateState();
 }
 
-class _AnimationWithTickerState extends State<AnimationWithTicker> with TickerProviderStateMixin{
-  final int _durationInSecond=5;
-  final ValueNotifier<double> _animation=ValueNotifier(0);
+class _AnimationWithTickerAndSetStateState extends State<AnimationWithTickerAndSetState> with TickerProviderStateMixin{
+  final int _durationInSecond=3;
+  double value=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          AnimationWithTicker.title,
+          AnimationWithTickerAndSetState.title,
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AnimatedBuilder(
-              animation: _animation,
-              builder: (_,__){
-                return CustomLoading(
-                  progressMultiple: _animation.value,
-                );
-              }
+          CustomLoading(
+            progressMultiple: value,
           ),
           const SizedBox(height: 20,),
           ElevatedButton(
@@ -49,7 +44,7 @@ class _AnimationWithTickerState extends State<AnimationWithTicker> with TickerPr
 
   void _customAnimation() {
     if(_forwardTicker!=null && _forwardTicker!.isTicking)return;
-    if(_animation.value<=0){
+    if(value<=0){
       _forwardAnimation();
     }else{
       _backwardAnimation();
@@ -61,8 +56,9 @@ class _AnimationWithTickerState extends State<AnimationWithTicker> with TickerPr
   void _backwardAnimation() {
     if(_backwardTicker==null){
       _backwardTicker=createTicker((deltaTime) {
-        _animation.value=1-1*_percentageOfProgress(deltaTime);
-        if(_animation.value<=0)_backwardTicker?.stop();
+        value=1-1*_percentageOfProgress(deltaTime);
+        if(value<=0)_backwardTicker?.stop();
+        setState(() {});
       });
     }
     _backwardTicker?.start();
@@ -72,8 +68,9 @@ class _AnimationWithTickerState extends State<AnimationWithTicker> with TickerPr
   void _forwardAnimation() {
     if(_forwardTicker==null){
       _forwardTicker=createTicker((deltaTime) {
-        _animation.value=1*_percentageOfProgress(deltaTime);
-        if(_animation.value>=1)_forwardTicker?.stop();
+        value=1*_percentageOfProgress(deltaTime);
+        if(value>=1)_forwardTicker?.stop();
+        setState(() {});
       });
     }
     _forwardTicker?.start();

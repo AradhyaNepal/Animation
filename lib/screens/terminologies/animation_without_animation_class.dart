@@ -13,7 +13,7 @@ class AnimationWithoutAnimationClass extends StatefulWidget {
 }
 
 class _AnimationWithoutAnimationClassState extends State<AnimationWithoutAnimationClass> {
-  final int _durationInSecond=5;
+  final int _durationInSecond=3;
   final ValueNotifier<double> _animation=ValueNotifier(0);
   @override
   Widget build(BuildContext context) {

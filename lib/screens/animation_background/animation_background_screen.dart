@@ -18,7 +18,7 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
     super.initState();
     _animationController=AnimationController(
         vsync: this,
-        duration: const Duration(seconds: 5)
+        duration: const Duration(seconds: 3)
     );
     _animation=_animationController;
     _animationController.value=0;
