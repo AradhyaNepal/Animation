@@ -1,4 +1,5 @@
 import 'package:animation/screens/animation_background/widgets/expensive_widget.dart';
+import 'package:animation/screens/animation_background/widgets/lag_indicator_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/typedef.dart';
@@ -25,41 +26,101 @@ class _WithoutFamilyMembersOfAnimationState extends State<WithoutFamilyMembersOf
             WithoutFamilyMembersOfAnimation.title,
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Entered Text: $_enteredText"),
-            const SizedBox(height: 20,),
-            Text("Is Selected: $_isSelected"),
-            ExpensiveWidget(expensiveData: _expensiveData,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  const Text("Type Value: "),
-                  Expanded(
-                    child: TextField(
-                      onChanged: (value){
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ExpensiveWidget(expensiveData: _expensiveData,),
+              Container(
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue, width: 10),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                      "Output",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text("Entered Text: $_enteredText"),
+                    const SizedBox(height: 20,),
+                    Text("Is Selected: $_isSelected"),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+              const LagIndicationWidget(),
+              Container(
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green, width: 10),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Input",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          const Text("Type Value: "),
+                          Expanded(
+                            child: TextField(
+                              onChanged: (value){
+                                setState(() {
+                                  _enteredText=value;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    _CustomSwitch(
+                      isSelected: _isSelected,
+                      onChanged: (value) {
+                        _isSelected=value;
                         setState(() {
-                          _enteredText=value;
                         });
                       },
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            _CustomSwitch(
-              isSelected: _isSelected,
-              onChanged: (value) {
-                _isSelected=value;
-                setState(() {
-                });
-              },
-            ),
-            const SizedBox(height: 50,),
-            const CircularProgressIndicator(),
-          ],
+            ],
+          ),
         ),
       ),
     );
