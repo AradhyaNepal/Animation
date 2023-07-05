@@ -17,7 +17,8 @@ class HomeScreenOptionsWidget extends StatelessWidget {
         vertical: 10,
       ),
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
+          await Future.delayed(Duration(seconds: 5));
           Navigator.pushNamed(context, routeToNavigate);
         },
         child: Padding(

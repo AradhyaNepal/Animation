@@ -12,8 +12,10 @@ import 'package:animation/screens/terminologies/intrinsic_animation_screen.dart'
 import 'package:animation/screens/terminologies/tween_screen_advance.dart';
 import 'package:animation/screens/terminologies/tween_screen_basic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
+  enableFlutterDriverExtension();
   runApp(const MyApp());
 }
 
@@ -29,19 +31,25 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: HomeScreen.route,
       routes: {
-        HomeScreen.route:(_)=>const HomeScreen(),
-        AnimationFamilyTree.route:(_)=>const AnimationFamilyTree(),
-        WithoutFamilyMembersOfAnimation.route:(_)=>const WithoutFamilyMembersOfAnimation(),
-        AnimationBackgroundScreen.route:(_)=>const AnimationBackgroundScreen(),
-        AnimationWithoutAnimationClass.route:(_)=>const AnimationWithoutAnimationClass(),
-        AnimationWithTickerAndFamily.route:(_)=>const AnimationWithTickerAndFamily(),
-        AnimationWithTickerAndSetState.route:(_)=>const AnimationWithTickerAndSetState(),
-        AnimationWithTickerAndTextEditingController.route:(_)=>const AnimationWithTickerAndTextEditingController(),
-        IntrinsicAnimationScreen.route:(_)=>const IntrinsicAnimationScreen(),
-        TweenScreenBasic.route:(_)=>const TweenScreenBasic(),
-        TweenScreenAdvance.route:(_)=>const TweenScreenAdvance(),
-        AnimationCurveScreen.route:(_)=>const AnimationCurveScreen(),
-        AnimationIntervalScreen.route:(_)=>const AnimationIntervalScreen(),
+        HomeScreen.route: (_) => const HomeScreen(),
+        AnimationFamilyTree.route: (_) => const AnimationFamilyTree(),
+        WithoutFamilyMembersOfAnimation.route: (_) =>
+            const WithoutFamilyMembersOfAnimation(),
+        AnimationBackgroundScreen.route: (_) =>
+            const AnimationBackgroundScreen(),
+        AnimationWithoutAnimationClass.route: (_) =>
+            const AnimationWithoutAnimationClass(),
+        AnimationWithTickerAndFamily.route: (_) =>
+            const AnimationWithTickerAndFamily(),
+        AnimationWithTickerAndSetState.route: (_) =>
+            const AnimationWithTickerAndSetState(),
+        AnimationWithTickerAndTextEditingController.route: (_) =>
+            const AnimationWithTickerAndTextEditingController(),
+        IntrinsicAnimationScreen.route: (_) => const IntrinsicAnimationScreen(),
+        TweenScreenBasic.route: (_) => const TweenScreenBasic(),
+        TweenScreenAdvance.route: (_) => const TweenScreenAdvance(),
+        AnimationCurveScreen.route: (_) => const AnimationCurveScreen(),
+        AnimationIntervalScreen.route: (_) => const AnimationIntervalScreen(),
       },
     );
   }
