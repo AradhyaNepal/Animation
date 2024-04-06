@@ -37,7 +37,7 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
     _progressAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: _progressCurve,
+        curve: Curves.decelerate,
       ),
     );
   }
@@ -61,6 +61,7 @@ class _AnimationCurveScreenState extends State<AnimationCurveScreen>
               AnimatedBuilder(
                 animation: _controller,
                 builder: (context, child) {
+                  print(_progressAnimation.value);
                   return Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     color: _colorAnimation.value,

@@ -8,7 +8,8 @@ class AnimationIntervalScreen extends StatefulWidget {
   const AnimationIntervalScreen({Key? key}) : super(key: key);
 
   @override
-  State<AnimationIntervalScreen> createState() => _AnimationIntervalScreenState();
+  State<AnimationIntervalScreen> createState() =>
+      _AnimationIntervalScreenState();
 }
 
 class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
@@ -42,20 +43,18 @@ class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
   void _setColorAnimation() {
     _colorAnimation = ColorTween(begin: Colors.red, end: Colors.orange).animate(
       CurvedAnimation(
-          parent: _controller,
-          curve: Interval(
-            0.75,
-            1,
-            curve: _curve,
-
-          ),
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          0.6
+        ),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final size=MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
@@ -82,15 +81,16 @@ class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
                           Icons.arrow_back,
                           color: Colors.white,
                         )),
-                    const SizedBox(width: 20,),
+                    const SizedBox(
+                      width: 20,
+                    ),
                     const Expanded(
                       child: Text(
                         AnimationIntervalScreen.title,
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500
-                        ),
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ],
@@ -127,9 +127,9 @@ class _AnimationIntervalScreenState extends State<AnimationIntervalScreen>
 
   void _animate() async {
     if (!_controller.isAnimating) {
-      if(_progressAnimation.value<=0){
+      if (_progressAnimation.value <= 0) {
         _controller.forward();
-      }else{
+      } else {
         _controller.reverse();
       }
     }

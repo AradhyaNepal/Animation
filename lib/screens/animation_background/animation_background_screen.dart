@@ -27,6 +27,7 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
 
   @override
   Widget build(BuildContext context) {
+    //0 to 1
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -39,6 +40,7 @@ class _AnimationBackgroundScreenState extends State<AnimationBackgroundScreen> w
           AnimatedBuilder(
               animation: _animation,
               builder: (_,__){
+                print("Rebuild ${_animation.value}");
                 return CustomLoading(
                   progressMultiple: _animation.value,
                 );
